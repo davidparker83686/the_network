@@ -1,14 +1,17 @@
 <template>
   <div>
     hello
-    <span>{{ ads }}</span>
-    <span>{{ ads }}</span>
+    <!-- <span>{{ ads }}</span> -->
+    <span>{{ ads.tall }}</span>
+    <img class="" :src="ads.tall" alt="BCW Ads">
+    <!-- <span>{{ ads }}</span> -->
+    hate this
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Marketing',
+  name: 'Ads',
   props: {
     ads: {
       type: Object,
@@ -22,8 +25,5 @@ export default {
 </script>
 
 <style lang="scss" >
-.small-img{
-     width: 1em;
-}
 
 </style>

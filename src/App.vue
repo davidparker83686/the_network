@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <div class="col-11 col-md-2 bg-warning">
+    <!-- <div class="col-11 col-md-2 bg-warning">
       <Marketing />
-    </div>
+    </div> -->
   </div>
 </template>
 

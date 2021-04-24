@@ -31,6 +31,10 @@
   <div class="col-12">
     <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
   </div>
+
+  <div class="col-12">
+    <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
+  </div>
 </template>
 
 <script>
@@ -38,6 +42,7 @@ import { onMounted, reactive, computed } from 'vue'
 import Notification from '../utils/Notification'
 import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
+import { adsService } from '../services/AdsService'
 import { AppState } from '../AppState'
 export default {
   name: 'Home',
@@ -49,6 +54,7 @@ export default {
     onMounted(async() => {
       try {
         await postsService.getAll()
+        await adsService.getAll()
       } catch (error) {
         Notification.toast('Error:' + error, 'error')
       }
