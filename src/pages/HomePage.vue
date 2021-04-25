@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow col-12 m-2">
+  <div class="card shadow col-11 col-md-10">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -28,12 +28,28 @@
     </div>
   </div>
 
-  <div class="col-12">
+  <div class="d-block d-md-none col-10 bg-info">
+    <p>litol</p>
+
+    <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
+  </div>
+
+  <div class="col-11 col-md-9 bg-warning">
     <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
   </div>
 
-  <div class="col-12">
+  <div class="d-none d-md-block col-md-2 bg-info">
+    <p>biiiig</p>
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
+  </div>
+
+  <div class="col-12 justify-content-around">
+    <button type="button" class="btn btn-primary">
+      Newer
+    </button>
+    <button type="button" class="btn btn-secondary">
+      Older
+    </button>
   </div>
 </template>
 
@@ -48,12 +64,19 @@ export default {
   name: 'Home',
   setup() {
     const state = reactive({
+      ads: computed(() => AppState.ads),
       posts: computed(() => AppState.posts),
       newPost: {}
     })
     onMounted(async() => {
       try {
         await postsService.getAll()
+      } catch (error) {
+        Notification.toast('Error:' + error, 'error')
+      }
+    })
+    onMounted(async() => {
+      try {
         await adsService.getAll()
       } catch (error) {
         Notification.toast('Error:' + error, 'error')

@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="ad">
     hello
-    <!-- <span>{{ ads }}</span> -->
     <span>{{ ads.tall }}</span>
     <img class="" :src="ads.tall" alt="BCW Ads">
-    <!-- <span>{{ ads }}</span> -->
+    <span>{{ ads }}</span>
     hate this
   </div>
 </template>

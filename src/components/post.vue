@@ -4,7 +4,7 @@
       <button type="button" class="btn btn-danger">
         delete
       </button>
-      <div class="post  bg-success" style="cursor: pointer" v-if="posts.creator">
+      <div class="post" style="cursor: pointer" v-if="posts.creator">
         <router-link :to="{name: 'Profiles', params: {id: posts.creator.id}}">
           <div>
             <img class="rounded-circle small-img" :src="posts.creator.picture" alt="User Photo">

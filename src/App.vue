@@ -1,30 +1,17 @@
 <template>
-  <div class="row ">
-    <div class="col-2 bg-danger d-none d-md-block">
+  <div class="row">
+    <div class="col-2 bg-danger d-none d-md-block m-0 p-0">
       <span>hi</span>
     </div>
 
-    <div class="col-8">
+    <div class="col-10 p-0">
       <header class="">
         <Navbar />
       </header>
-      <main class="row justify-content-center">
+      <main class="row">
         <router-view />
       </main>
-
-      <div class="row">
-        <button type="button" class="btn btn-primary">
-          Newer
-        </button>
-        <button type="button" class="btn btn-secondary">
-          Older
-        </button>
-      </div>
     </div>
-
-    <!-- <div class="col-11 col-md-2 bg-warning">
-      <Marketing />
-    </div> -->
   </div>
 </template>
 
