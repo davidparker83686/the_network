@@ -1,18 +1,22 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" class="btn btn-danger">
-        delete
+      <button type="button" class="btn btn-none p-0">
+        -
       </button>
+
       <div class="post" style="cursor: pointer" v-if="posts.creator">
         <router-link :to="{name: 'Profiles', params: {id: posts.creator.id}}">
-          <div>
+          <div class="">
             <img class="rounded-circle small-img" :src="posts.creator.picture" alt="User Photo">
-            <h5>{{ posts.creator.name }}</h5>
+            <span class="mx-3">{{ posts.creator.name }}</span>
+            <!-- <br> -->
+            <span class="mx-5">{{ posts.creator.createdAt }}</span>
           </div>
-          <span>{{ posts.creator.createdAt }}</span>
+
           <span>{{ posts.body }}</span>
-          <span> likes{{ posts.likes }}</span>
+          <img class="post-img img-fluid my-2 rounded" :src="posts.imgUrl" alt="">
+          <!-- <span> likes{{ posts.likes }}</span> -->
         </router-link>
       </div>
     </div>
@@ -36,7 +40,13 @@ export default {
 
 <style lang="scss" >
 .small-img{
-     width: 1em;
+     width: 3em;
+}
+// .post-img{
+//      width: 45em;
+// }
+
+.next{
 }
 
 </style>

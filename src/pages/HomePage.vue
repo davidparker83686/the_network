@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow col-11 col-md-10">
+  <div class="card shadow col-11 col-md-9 m-3">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -27,29 +27,29 @@
       </form>
     </div>
   </div>
-
-  <div class="d-block d-md-none col-10 bg-info">
-    <p>litol</p>
-
-    <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
-  </div>
-
-  <div class="col-11 col-md-9 bg-warning">
-    <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
-  </div>
-
+  <!-- BIGADS -->
   <div class="d-none d-md-block col-md-2 bg-info">
-    <p>biiiig</p>
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
   </div>
+  <!-- LITTLE ADS -->
+  <div class="d-block d-md-none col-10 bg-info">
+    <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
+  </div>
+  <!-- POSTS -->
+  <div class="col-11 col-md-9 bg-warning m-3">
+    <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
+    <!-- BUTTONS  -->
+    <div class="col-12 " style="text-align: center;">
+      <button type="button" class="btn btn-none mx-5">
+        Newer
+      </button>
 
-  <div class="col-12 justify-content-around">
-    <button type="button" class="btn btn-primary">
-      Newer
-    </button>
-    <button type="button" class="btn btn-secondary">
-      Older
-    </button>
+      <!-- <router-link :to="{name: 'posts?page=2'}">
+        <button type="button" class="btn btn-none mx-5">
+          Older
+        </button>
+      </router-link> -->
+    </div>
   </div>
 </template>
 

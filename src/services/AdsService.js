@@ -5,7 +5,7 @@ class AdsService {
   async getAll() {
     const res = await api.get('api/ads')
     console.log(res.data)
-    AppState.ads = res.data.ads
+    AppState.ads = res.data
   }
 }
 

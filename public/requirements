@@ -1,15 +1,17 @@
+###All posts render all post data (creator details, createdAt, body, like count) in adherence to the Mock
 ##Users Can Register, Login, and Logout
 ##The Home page displays all posts, login not required
 ## Clicking on a creator image navigates to that users Profile page
 ##The Profile page shows all posts made by that user
 ##Refreshing while on the profile page does not navigate the user home, and the profile page still shows its required content
+##Each page shows at least 2 ads from api collection provided
 
 
 
 On Home and Profile users can to navigate to 'older' or 'newer' posts if available
+
 Users have a search form which navigates them to a Search Results page on submit
-All posts render all post data (creator details, createdAt, body, like count) in adherence to the Mock
-Each page shows at least 2 ads from api collection provided
+
 
 
 
@@ -18,4 +20,5 @@ Once logged in Users can Delete their Posts
 Once logged in Users can Like/unlike Posts
 Once logged in Users can Edit their Profile
 Users can only modify/delete data they created (the UI should reflect this, disabled, hidden, etc.)
+
 Application UI adheres to Phase I: Code Cleanup of the CodeWorks Design Doc

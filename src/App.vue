@@ -4,11 +4,11 @@
       <span>hi</span>
     </div>
 
-    <div class="col-10 p-0">
+    <div class="col-12 col-md-10 p-0">
       <header class="">
         <Navbar />
       </header>
-      <main class="row">
+      <main class="row justify-content-center">
         <router-view />
       </main>
     </div>

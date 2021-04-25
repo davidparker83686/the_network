@@ -1,10 +1,8 @@
 <template>
   <div class="ad">
-    hello
-    <span>{{ ads.tall }}</span>
-    <img class="" :src="ads.tall" alt="BCW Ads">
-    <span>{{ ads }}</span>
-    hate this
+    <!-- <img class="" :src="ads.imgUrl" alt=""> -->
+    <img class="d-none d-md-block img-fluid my-2" :src="ads.tall" alt="BCW Ads">
+    <img class="d-block d-md-none img-fluid my-2" :src="ads.square" alt="BCW Ads">
   </div>
 </template>
 

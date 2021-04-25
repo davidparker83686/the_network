@@ -29,9 +29,22 @@
           </router-link>
         </li> -->
       </ul>
+      <form class="form-inline">
+        <input type="search"
+               class="form-control"
+               name="search"
+               id="inputPassword2"
+               placeholder="Search"
+               v-model="state.newSearch.name"
+        >
+        <button type="submit" class="btn btn-none">
+          Search
+        </button>
+      </form>
+
       <span class="navbar-text">
         <button
-          class="btn btn-outline-primary text-uppercase"
+          class="p-0 btn btn-outline-primary text-uppercase"
           @click="login"
           v-if="!user.isAuthenticated"
         >
@@ -82,7 +95,8 @@ export default {
   name: 'Navbar',
   setup() {
     const state = reactive({
-      dropOpen: false
+      dropOpen: false,
+      newSearch: {}
     })
     return {
       state,
