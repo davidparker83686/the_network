@@ -32,7 +32,7 @@
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
   </div> -->
   <!-- LITTLE ADS -->
-  <div class="d-block d-md-none col-10 bg-info">
+  <div class="d-block d-md-none col-10">
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
   </div>
   <!-- POSTS -->

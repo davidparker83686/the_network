@@ -1,5 +1,5 @@
 <template>
-  <div class="card rounded shadow">
+  <div class="card side-bar rounded shadow p-0 m-0">
     <button
       class="p-0 btn btn-outline-primary text-uppercase"
       @click="login"
@@ -95,5 +95,8 @@ a:hover {
 .user-pic{
   width: 100pix,
   /* height: 5em, */
+}
+.side-bar{
+ min-height: 500px;
 }
 </style>
