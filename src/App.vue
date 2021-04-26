@@ -1,16 +1,20 @@
 <template>
   <div class="row">
-    <div class="col-2 bg-danger d-none d-md-block m-0 p-0">
-      <span>hi</span>
+    <div class="col-2 d-none d-md-block  p-0 justify-text-center">
+      <Sidebar />
     </div>
 
-    <div class="col-12 col-md-10 p-0">
+    <div class="col-12 col-md-8 p-0">
       <header class="">
         <Navbar />
       </header>
       <main class="row justify-content-center">
         <router-view />
       </main>
+    </div>
+
+    <div class="col-md-2 d-none d-md-block p-0">
+      <Marketing />
     </div>
   </div>
 </template>

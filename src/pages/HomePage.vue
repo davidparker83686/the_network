@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow col-11 col-md-9 m-3">
+  <div class="card shadow col-11 col-md-11 my-3">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -28,15 +28,15 @@
     </div>
   </div>
   <!-- BIGADS -->
-  <div class="d-none d-md-block col-md-2 bg-info">
+  <!-- <div class="d-none d-md-block col-md-2 bg-info">
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
-  </div>
+  </div> -->
   <!-- LITTLE ADS -->
   <div class="d-block d-md-none col-10 bg-info">
     <Ads v-for="ads in state.ads" :key="ads.title" :ads="ads" />
   </div>
   <!-- POSTS -->
-  <div class="col-11 col-md-9 bg-warning m-3">
+  <div class="col-11 col-md-11 my-3">
     <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
     <!-- BUTTONS  -->
     <div class="col-12 " style="text-align: center;">

@@ -51,7 +51,7 @@
           Login
         </button>
 
-        <div class="dropdown" v-else>
+        <div class="dropdown d-block d-md-none" v-else>
           <div
             class="dropdown-toggle"
             @click="state.dropOpen = !state.dropOpen"
@@ -60,7 +60,7 @@
               :src="user.picture"
               alt="user photo"
               height="40"
-              class="rounded-circle"
+              class="rounded-circle "
             />
             <span class="mx-3">{{ user.name }}</span>
           </div>
@@ -134,4 +134,5 @@ a:hover {
 .nav-item .nav-link.router-link-exact-active{
   color: var(--primary);
 }
+
 </style>
