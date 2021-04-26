@@ -1,7 +1,7 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" class="btn btn-none p-0">
+      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0">
         -
       </button>
 
@@ -24,6 +24,10 @@
 </template>
 
 <script>
+import { AppState } from '../AppState'
+import { reactive, computed } from 'vue'
+import { postsService } from '../services/PostsService'
+
 export default {
   name: 'Posts',
   props: {
@@ -33,7 +37,19 @@ export default {
     }
   },
   setup() {
-    return {}
+    const state = reactive({
+      posts: computed(() => AppState.posts)
+    })
+    return {
+      state,
+      async deletePost(posts) {
+        try {
+          await postsService.deletePost(posts)
+        } catch (error) {
+          console.error(error)
+        }
+      }
+    }
   }
 }
 </script>

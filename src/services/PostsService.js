@@ -28,6 +28,11 @@ class PostsService {
     AppState.posts = [...AppState.posts, res.data]
   }
 
+  async deletePost(posts) {
+    await api.delete('api/posts/' + posts.id)
+    AppState.posts = AppState.posts.filter(p => p.id !== posts.id)
+  }
+
   // async addPhoto(postId, photo) {
   //   await api.post(`api/posts/${postId}/photos`, photo)
   //   this.getActive(postId)

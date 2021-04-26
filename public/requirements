@@ -10,15 +10,19 @@
 
 On Home and Profile users can to navigate to 'older' or 'newer' posts if available
 
+
+
 Users have a search form which navigates them to a Search Results page on submit
 
 
 
 
-Once logged in Users can Create Posts
-Once logged in Users can Delete their Posts
 Once logged in Users can Like/unlike Posts
 Once logged in Users can Edit their Profile
 Users can only modify/delete data they created (the UI should reflect this, disabled, hidden, etc.)
 
 Application UI adheres to Phase I: Code Cleanup of the CodeWorks Design Doc
+
+
+####Once logged in Users can Create Posts
+###Once logged in Users can Delete their Posts
