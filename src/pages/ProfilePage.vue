@@ -41,7 +41,7 @@ import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
 import { AppState } from '../AppState'
 import { useRoute } from 'vue-router'
-import { accountService } from '../services/AccountService'
+// import { accountService } from '../services/AccountService'
 export default {
   name: 'ProfilePage',
   setup() {

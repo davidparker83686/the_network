@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow col-11 col-md-11 my-3" v-if="state.user.isAuthenticated && state.activeProfile.id === state.account.id">
+  <div class="card shadow col-11 col-md-11 my-3" v-if="state.user.isAuthenticated">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -61,7 +61,7 @@ import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
 import { adsService } from '../services/AdsService'
 import { AppState } from '../AppState'
-import { accountService } from '../services/AccountService'
+// import { accountService } from '../services/AccountService'
 export default {
   name: 'Home',
   setup() {

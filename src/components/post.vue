@@ -1,7 +1,7 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.activeProfile.id === state.account.id">
+      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.account.id === state.creatorId">
         -
       </button>
 
@@ -28,7 +28,7 @@
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
 import { postsService } from '../services/PostsService'
-import { accountService } from '../services/AccountService'
+// import { accountService } from '../services/AccountService'
 
 export default {
   name: 'Posts',
