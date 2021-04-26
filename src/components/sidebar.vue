@@ -21,7 +21,7 @@
         />
         <br>
         <!-- <span>{{ user.creator.graduated }}</span> -->
-        <span class="p-4"> <b> {{ user.name }}</b> </span>
+        <span class="p-4"> {{ user.name }} </span>
       </div>
       <div
         class="dropdown-menu p-0 list-group w-100"
