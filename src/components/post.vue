@@ -1,7 +1,7 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0">
+      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.activeProfile.id === state.account.id">
         -
       </button>
 
@@ -15,6 +15,7 @@
           </div>
 
           <span>{{ posts.body }}</span>
+          <br>
           <img class="post-img img-fluid my-2 rounded" :src="posts.imgUrl" alt="">
           <!-- <span> likes{{ posts.likes }}</span> -->
         </router-link>
@@ -27,6 +28,7 @@
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
 import { postsService } from '../services/PostsService'
+import { accountService } from '../services/AccountService'
 
 export default {
   name: 'Posts',
@@ -38,6 +40,8 @@ export default {
   },
   setup() {
     const state = reactive({
+      account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       posts: computed(() => AppState.posts)
     })
     return {

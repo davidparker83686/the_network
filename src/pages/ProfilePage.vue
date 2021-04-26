@@ -1,6 +1,6 @@
 
 <template>
-  <div class="card shadow col-12 m-2">
+  <div class="card shadow col-11 col-md-11 my-3" v-if="state.user.isAuthenticated && state.activeProfile.id === state.account.id">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="col-12">
+  <div class="col-11 col-md-11 my-3">
     <Posts v-for="posts in state.posts" :key="posts.id" :posts="posts" />
   </div>
 </template>
@@ -41,11 +41,14 @@ import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
 import { AppState } from '../AppState'
 import { useRoute } from 'vue-router'
+import { accountService } from '../services/AccountService'
 export default {
   name: 'ProfilePage',
   setup() {
     const route = useRoute()
     const state = reactive({
+      account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
       newPost: {}
     })

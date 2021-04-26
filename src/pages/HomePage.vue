@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow col-11 col-md-11 my-3">
+  <div class="card shadow col-11 col-md-11 my-3" v-if="state.user.isAuthenticated && state.activeProfile.id === state.account.id">
     <div class="card-body">
       <form @submit.prevent="create">
         <div class="form-group">
@@ -44,30 +44,50 @@
         Newer
       </button>
 
-      <!-- <router-link :to="{name: 'posts?page=2'}">
-        <button type="button" class="btn btn-none mx-5">
-          Older
-        </button>
-      </router-link> -->
+      <!-- <router-link :to="{name: 'posts?page=2', params: {id: state.posts.creator.id}}"> -->
+      <button type="button" class="btn btn-none mx-5">
+        Older
+      </button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
+// import { useRoute } from 'vue-router'
 import { onMounted, reactive, computed } from 'vue'
 import Notification from '../utils/Notification'
 import { logger } from '../utils/Logger'
 import { postsService } from '../services/PostsService'
 import { adsService } from '../services/AdsService'
 import { AppState } from '../AppState'
+import { accountService } from '../services/AccountService'
 export default {
   name: 'Home',
   setup() {
+    // const route = useRoute()
+
     const state = reactive({
+      account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
       ads: computed(() => AppState.ads),
       posts: computed(() => AppState.posts),
       newPost: {}
     })
+    // onMounted(async() => {
+    //   try {
+    //     await postsService.getOlder(route.params.id)
+    //   } catch (error) {
+    //     Notification.toast('Error: ' + error, 'error')
+    //   }
+    // })
+    // onMounted(async() => {
+    //   try {
+    //     await postsService.getNew(route.params.id)
+    //   } catch (error) {
+    //     Notification.toast('Error: ' + error, 'error')
+    //   }
+    // })
     onMounted(async() => {
       try {
         await postsService.getAll()

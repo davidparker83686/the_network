@@ -33,6 +33,11 @@ class PostsService {
     AppState.posts = AppState.posts.filter(p => p.id !== posts.id)
   }
 
+  async getOlder() {
+    await api.getOlder('api/posts?page=' + 2)
+    // AppState.posts = AppState.posts
+  }
+
   // async addPhoto(postId, photo) {
   //   await api.post(`api/posts/${postId}/photos`, photo)
   //   this.getActive(postId)
