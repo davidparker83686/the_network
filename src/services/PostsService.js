@@ -6,6 +6,7 @@ class PostsService {
     const res = await api.get('api/posts')
     console.log(res.data)
     AppState.posts = res.data.posts
+    // add res.data.older and res.data.newer to appstate
   }
 
   async getPostsByID(id) {
@@ -23,9 +24,20 @@ class PostsService {
     AppState.activePosts = res.data
   }
 
+  async search(q) {
+    const res = await api.get(`api/posts?query=${q}`)
+    AppState.activePosts = res.data
+    // router push to search page
+  }
+
   async create(data) {
     const res = await api.post('api/posts', data)
     AppState.posts = [...AppState.posts, res.data]
+  }
+
+  async like(post) {
+    const res = await api.post('api/posts/:id/like')
+    AppState.posts = res.data
   }
 
   async deletePost(posts) {

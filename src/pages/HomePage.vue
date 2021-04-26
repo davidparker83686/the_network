@@ -44,11 +44,10 @@
         Newer
       </button>
 
-      <!-- <router-link :to="{name: 'posts?page=2', params: {id: state.posts.creator.id}}"> -->
+      <!-- @click to get new or older post -->
       <button type="button" class="btn btn-none mx-5">
         Older
       </button>
-      <!-- </router-link> -->
     </div>
   </div>
 </template>
@@ -72,22 +71,9 @@ export default {
       user: computed(() => AppState.user),
       ads: computed(() => AppState.ads),
       posts: computed(() => AppState.posts),
+      // add computed for newer and older
       newPost: {}
     })
-    // onMounted(async() => {
-    //   try {
-    //     await postsService.getOlder(route.params.id)
-    //   } catch (error) {
-    //     Notification.toast('Error: ' + error, 'error')
-    //   }
-    // })
-    // onMounted(async() => {
-    //   try {
-    //     await postsService.getNew(route.params.id)
-    //   } catch (error) {
-    //     Notification.toast('Error: ' + error, 'error')
-    //   }
-    // })
     onMounted(async() => {
       try {
         await postsService.getAll()

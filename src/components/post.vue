@@ -1,7 +1,7 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.account.id === state.creatorId">
+      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.account.id === posts.creatorId">
         -
       </button>
 
@@ -17,14 +17,17 @@
           <span>{{ posts.body }}</span>
           <br>
           <img class="post-img img-fluid my-2 rounded" :src="posts.imgUrl" alt="">
-          <!-- <span> likes{{ posts.likes }}</span> -->
         </router-link>
+        <span @click="like(posts)">
+          <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+          {{ posts.likes.length }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Notification from '../utils/Notification'
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
 import { postsService } from '../services/PostsService'
@@ -49,8 +52,16 @@ export default {
       async deletePost(posts) {
         try {
           await postsService.deletePost(posts)
+          Notification.toast('Successfully Deleted Post', 'success')
         } catch (error) {
           console.error(error)
+        }
+      },
+      async like(posts) {
+        try {
+          await postsService.like(posts)
+        } catch (error) {
+
         }
       }
     }
@@ -65,8 +76,5 @@ export default {
 // .post-img{
 //      width: 45em;
 // }
-
-.next{
-}
 
 </style>

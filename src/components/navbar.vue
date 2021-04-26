@@ -29,13 +29,13 @@
           </router-link>
         </li> -->
       </ul>
-      <form class="form-inline">
+      <form class="form-inline" @submit.prevent="search">
         <input type="search"
                class="form-control"
                name="search"
                id="inputPassword2"
                placeholder="Search"
-               v-model="state.newSearch.name"
+               v-model="state.newSearch.post"
         >
         <button type="submit" class="btn btn-none">
           Search
@@ -107,6 +107,9 @@ export default {
       async logout() {
         await AuthService.logout({ returnTo: window.location.origin })
       }
+      // async search(){
+      //   // send search with query to posts service
+      // }
     }
   }
 }
