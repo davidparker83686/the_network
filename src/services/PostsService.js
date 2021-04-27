@@ -1,3 +1,4 @@
+import { post } from 'jquery'
 import { AppState } from '../AppState'
 import router from '../router'
 import { api } from './AxiosService'
@@ -33,13 +34,15 @@ class PostsService {
 
   async create(data) {
     const res = await api.post('api/posts', data)
-    AppState.posts = [...AppState.posts, res.data]
+    const res2 = await api.get(`api/profiles/${res.data.creatorId}/posts`)
+    AppState.posts = [...AppState.posts, res2.data]
   }
 
   async like(id) {
     const res = await api.post(`api/posts/${id}/like`)
     // router.push({ name: 'home' })
-    AppState.posts = res.data
+    // AppState.posts = res.data
+    post.likes = res.data.likes
   }
 
   async deletePost(posts) {
