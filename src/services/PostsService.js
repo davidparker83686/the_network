@@ -1,4 +1,5 @@
 import { AppState } from '../AppState'
+import router from '../router'
 import { api } from './AxiosService'
 
 class PostsService {
@@ -24,10 +25,10 @@ class PostsService {
     AppState.activePosts = res.data
   }
 
-  async search(q) {
-    const res = await api.get(`api/posts?query=${q}`)
+  async search(query) {
+    const res = await api.get(`api/posts?query=${query}`)
     AppState.activePosts = res.data
-    // router push to search page
+    router.push({ name: 'query' })
   }
 
   async create(data) {
@@ -35,8 +36,9 @@ class PostsService {
     AppState.posts = [...AppState.posts, res.data]
   }
 
-  async like(post) {
-    const res = await api.post('api/posts/:id/like')
+  async like(id) {
+    const res = await api.post(`api/posts/${id}/like`)
+    // router.push({ name: 'home' })
     AppState.posts = res.data
   }
 

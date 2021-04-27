@@ -24,3 +24,36 @@ Application UI adheres to Phase I: Code Cleanup of the CodeWorks Design Doc
 
 ####Once logged in Users can Create Posts
 ###Once logged in Users can Delete their Posts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class="text-left"
+
+
+img v-if="post.imgUrl  :src="
+
+
+
+<class="d-flex justify-content-between">
+
+
+
+
+
+
+account.id will take you to your profile

@@ -1,9 +1,11 @@
 <template>
   <div class="card m-1 shadow">
     <div class="card-body">
-      <button type="button" @click="deletePost (posts) " class="btn btn-none p-0" v-if="state.user.isAuthenticated && state.account.id === posts.creatorId">
-        -
-      </button>
+      <div class="text-right">
+        <button type="button" @click="deletePost (posts) " class="btn btn-none text-right p-0" v-if="state.user.isAuthenticated && state.account.id === posts.creatorId">
+          -
+        </button>
+      </div>
 
       <div class="post" style="cursor: pointer" v-if="posts.creator">
         <router-link :to="{name: 'Profiles', params: {id: posts.creator.id}}">
@@ -18,9 +20,12 @@
           <br>
           <img class="post-img img-fluid my-2 rounded" :src="posts.imgUrl" alt="">
         </router-link>
-        <span @click="like(posts)">
-          <i class="fa fa-heart text-danger" aria-hidden="true"></i>
-          {{ posts.likes.length }}</span>
+
+        <div class="text-right">
+          <span @click="like(posts.id)">
+            <i class="fa fa-heart text-danger" aria-hidden="true"></i>
+            {{ posts.likes.length }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -60,8 +65,9 @@ export default {
       async like(posts) {
         try {
           await postsService.like(posts)
+          Notification.toast('Successfully Liked Post', 'success')
         } catch (error) {
-
+          console.error(error)
         }
       }
     }

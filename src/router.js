@@ -17,6 +17,11 @@ const routes = [
     component: loadPage('AboutPage')
   },
   {
+    path: '/posts?query=',
+    name: 'query',
+    component: loadPage('SearchPage')
+  },
+  {
     path: '/posts/:id',
     name: 'PostsDetails',
     component: loadPage('PostsDetailsPage')
